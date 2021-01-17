@@ -3,7 +3,7 @@ const app = express()
 const Question = require("../models/questions")
 
 app.get("/questions", async(req,res) => {
-    const que = [
+   /* const que = [
     {
         question: "How does Social Scientists define an Environment",
         answer: "According to Social Scientists, an environment is defined as the aggregate of all internal and external conditions affecting the existence, growth and welfare of organisms. (Okafor, 1991 page 65)",
@@ -210,7 +210,7 @@ app.get("/questions", async(req,res) => {
         II. SECONDARY GROUP :- They are usually dispersed in space and time and so large that they can't maintain close contact. This aggregate or individuals maybe association, parties, etc`,
         coursecode: 201
     }
-]
+] */
 
 try {
      let new_question= await Question.find()
