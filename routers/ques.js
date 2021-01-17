@@ -1,9 +1,4 @@
-const express = require("express")
-const app = express()
-const Question = require("../models/questions")
-
-app.get("/questions", async(req,res) => {
-    const que = [
+const que = [
     {
         question: "How does Social Scientists define an Environment",
         answer: "According to Social Scientists, an environment is defined as the aggregate of all internal and external conditions affecting the existence, growth and welfare of organisms. (Okafor, 1991 page 65)",
@@ -211,40 +206,3 @@ app.get("/questions", async(req,res) => {
         coursecode: 201
     }
 ]
-
-try {
-     let new_question= await Question.find()
-    return res.status(201).json({
-        message: "Docs successfully retrieved",
-        doc: new_question
-     })
-} catch (error) {
-    return res.status(
-        {
-            error : error
-        }
-    )
-}
-   
-})
-
-//GET INDIVIDUAL QUESTION
-
-app.get("/questions/:coursecode", async(req,res) => {
-    const coursecode = req.params.coursecode
-    try {
-        let new_question = await Question.find({coursecode})
-        return res.status(201).json({
-            message: "Doc successfully created",
-            doc : new_question
-         })
-    } catch (error) {
-        return res.status(
-            {
-                error : error
-            }
-        )
-    }
-       
-    })
-module.exports = app
